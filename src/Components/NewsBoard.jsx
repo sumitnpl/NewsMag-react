@@ -9,8 +9,9 @@ const NewsBoard = ({ category }) => {
   }, [category]);
 
   const fetchData = async () => {
+    let url =`https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=5fc1e14135a7467e89ae07e5eddb1e29`;
     try {
-      const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=5fc1e14135a7467e89ae07e5eddb1e29`);
+      const response = await fetch(url);
       if (!response.ok) {
         throw new Error('Failed to fetch data');
       }
@@ -27,7 +28,7 @@ const NewsBoard = ({ category }) => {
 
   return (
     <div className="bg-white">
-      <h1 className="text-center px-3 py-3">Latest <span className="badge bg-danger">News</span></h1>
+      <h1 className="text-center px-2 py-2">Latest <span className="badge" style={{background:"#F9AD58"}}>News</span></h1>
       {articles.map((news, index) => (
         <NewsItem
           key={index}
