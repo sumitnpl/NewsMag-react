@@ -9,7 +9,9 @@ const NewsBoard = ({ category }) => {
   }, [category]);
 
   const fetchData = async () => {
-    let url =`https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=5fc1e14135a7467e89ae07e5eddb1e29`;
+    //your api key here
+    let api_key = 'api_key';
+    let url =`https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${api_key}`;
     try {
       const response = await fetch(url);
       if (!response.ok) {
